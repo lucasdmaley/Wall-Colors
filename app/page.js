@@ -1,17 +1,63 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Inter } from 'next/font/google';
+import { ChromePicker } from 'react-color';
+
+import React, { useState } from 'react';
+
+const inter = Inter({ subsets: ['latin'] });
+
 
 export default function Home() {
+  const [state, setState] = useState({
+    displayColorPicker: true,
+    color: "#ab10ed"
+  });
+
+  /* Color Picker component */
+  const ColorPicker = () => {
+    const handleChange = (color) => {
+      setState({...state, color: color.hex });
+    };
+
+    return (
+      <div>
+        { state.displayColorPicker ?
+          <div className={ styles.popover }>
+            <ChromePicker color={state.color} onChange={ handleChange } />
+          </div> : null
+        }
+      </div>
+    )
+  }
+
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <p> hi!</p>
-        <h1>hi! What's Up?</h1>
-
-        <div className={styles.colorSwatch}>
-          <p>yo</p>
-        </div>
-      </main>
+      <div className={inter.className}>
+        <main className={styles.main}>
+          <div className={styles.leftSide}>
+            <p className={styles.title}>Hey!</p>
+            <p className={styles.bodyText}>I’m trying to add some color to my room, so please choose yours + submit your name and I’ll add it to the wall :)</p>
+            <ColorPicker />
+          </div>
+          <div className = {styles.rightSide}>
+            <div className={styles.colorSwatch}>
+              <div style={{backgroundColor: state.color}} className={styles.colorItself}/>
+              <div className={styles.swatchText}>
+                <p className={styles.swatchTextName}>Lucas Maley</p>
+                <div className={styles.swatchTextWrapper}>
+                  <p className={styles.swatchTextColor}>{state.color}</p>
+                  <p>09/24/2001</p>
+                </div>
+              </div>
+            </div>
+            <p className={styles.caption}>This is what it'll look like</p>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

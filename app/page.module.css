@@ -7,13 +7,86 @@
   --button-secondary-hover: #f2f2f2;
 
   display: grid;
+  justify-content: center;
+  padding: 5vh 5vw;
+
+  /* display: grid;
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
   padding: 80px;
   gap: 64px;
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-geist-sans); */
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  /* background-color: red; */
+  height: 90vh;
+  width: 95vw;
+}
+/* ------------------------------------------------------------------------
+                                LEFT SIDE 
+   ------------------------------------------------------------------------*/
+
+.title {
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.bodyText {
+  font-size: 40px;
+  padding-top: 10px;
+}
+
+/* ------------------------------------------------------------------------
+                                RIGHT SIDE 
+   ------------------------------------------------------------------------*/
+.colorSwatch {
+  color: black;
+  background-color: white;
+  width: 500px;
+  height: 500px;
+}
+
+.colorItself {
+  width: 500px;
+  height: 380px;
+  background-color: #fafafa;
+}
+
+.swatchText {
+  padding: 15px 25px 25px 25px;
+}
+
+.swatchTextName {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.swatchTextWrapper {
+  display: flex;
+  font-size: 25px;
+  color: #C9C9C9;
+  justify-content: space-between;
+}
+
+.swatchTextColor {
+  font-weight: bold;
+}
+
+.caption {
+  color: #C9C9C9;
+  /* font-weight: bold; */
+  font-style: italic;
+  font-size: 25px;
+  /* background-color: blue; */
+  padding: 15px;
+  text-align: center;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,34 +105,6 @@
   .page {
     padding: 32px;
     padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
   }
 }
 
