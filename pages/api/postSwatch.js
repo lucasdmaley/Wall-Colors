@@ -16,7 +16,8 @@ export default async function handler(req, res) {
         const newSwatch = await prisma.ColorPickerCollection.create({
             data: {
               username: req.body.username,
-              color: req.body.color
+              color: req.body.color,
+              hexcode: req.body.hexcode
             },
         })
         res.status(200).json({message: "Success!", newSwatch: newSwatch})

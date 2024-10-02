@@ -10,5 +10,6 @@ datasource db {
 model ColorPickerCollection {
   id       String @id @default(auto()) @map("_id") @db.ObjectId
   color    String
+  hexcode  String
   username String
 }

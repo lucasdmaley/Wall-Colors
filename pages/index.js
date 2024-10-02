@@ -70,6 +70,7 @@ export default function Home() {
       body: JSON.stringify({
         username: username,
         color: colorName,
+        hexcode: hexCode,
       }),
     }).then((data) => data.json()).then((r) => {
         console.log("all done!");
