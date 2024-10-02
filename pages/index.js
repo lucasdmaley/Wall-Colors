@@ -1,9 +1,7 @@
 'use client'
 
-import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "../styles/page.module.css";
 import { Inter } from 'next/font/google';
-import { ChromePicker } from 'react-color';
 
 import { CustomPicker } from 'react-color';
 
@@ -11,12 +9,11 @@ var { Saturation } = require('react-color/lib/components/common');
 var { Hue } = require('react-color/lib/components/common');
 var { EditableInput } = require('react-color/lib/components/common');
 
-
 import React, { useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-// Define your custom picker component
+// Defining custom picker component
 const MyPicker = ({ hex, hsl, hsv, onChange }) => {
   const [hexPickerState, setHexPickerState] = useState({ color: "#757575" });
 
@@ -50,22 +47,35 @@ const MyPicker = ({ hex, hsl, hsv, onChange }) => {
 
 const CustomColorPicker = CustomPicker(MyPicker);
 
-
 export default function Home() {
-  const [colorState, setColorState] = useState({
-    displayColorPicker: true,
-    color: "#208FFF"
-  });
 
   const [username, setUsername] = useState("");
   const [colorName, setColorName] = useState("");
+  const [hexCode, setHexCode] = useState("#208FFF");
 
   /* Color Picker component */
   const handleChange = (newColor) => {
-    setColorState({ ...colorState, color: newColor.hex});
+    setHexCode(newColor.hex);
   };
 
-
+  const postSwatch = async () => {
+    console.log("in postSwatch!")
+    const response = await fetch("/api/postSwatch", {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        username: username,
+        color: colorName,
+      }),
+    }).then((data) => data.json()).then((r) => {
+        console.log("all done!");
+    });
+    ;
+  }
 
   return (
     <div className={styles.page}>
@@ -75,7 +85,7 @@ export default function Home() {
             <p className={styles.title}>Hey!</p>
             <p className={styles.bodyText}>I’m trying to add some color to my room, so please choose your favorite + submit your name and I’ll add it to the wall :)</p>
             <CustomColorPicker 
-              color={colorState.color} 
+              color={hexCode} 
               onChange={handleChange} 
             />
             <div className={styles.row}>
@@ -88,14 +98,15 @@ export default function Home() {
               <input type="text" value={username} onChange={(e) => {setUsername(e.target.value)}}
                 className={styles.inputUsername} placeholder="Lucas Maley"/>
             </div>
+            <div className={styles.squareButton} onClick={() => {postSwatch(); console.log("hey")}}/>
           </div>
           <div className = {styles.rightSide}>
             <div className={styles.colorSwatch}>
-              <div style={{backgroundColor: colorState.color}} className={styles.colorItself}/>
+              <div style={{backgroundColor: hexCode}} className={styles.colorItself}/>
               <div className={styles.swatchText}>
                 <p className={styles.swatchTextName}>{username == "" ? "Lucas Maley" : username}</p>
                 <div className={styles.swatchTextWrapper}>
-                  <p className={styles.swatchTextColor}>{colorState.color.toUpperCase()}</p>
+                  <p className={styles.swatchTextColor}>{hexCode.toUpperCase()}</p>
                   <p>"{colorName == "" ? "Chill Blue" : colorName}"</p>
                 </div>
               </div>
@@ -107,14 +118,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-/*
-
-<p 
-                className={styles.displayText} 
-                onClick={() => document.getElementById('username').focus()} // Click to focus input
-              >
-                {username || "Lucas Maley"}
-                </p>
-*/
