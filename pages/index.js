@@ -107,8 +107,8 @@ export default function Home() {
               <div className={styles.swatchText}>
                 <p className={styles.swatchTextName}>{username == "" ? "Lucas Maley" : username}</p>
                 <div className={styles.swatchTextWrapper}>
-                  <p className={styles.swatchTextColor}>{hexCode.toUpperCase()}</p>
-                  <p>"{colorName == "" ? "Chill Blue" : colorName}"</p>
+                  <p className={styles.swatchTextHexcode}>{hexCode.toUpperCase()}</p>
+                  <p className={styles.swatchTextColor}>"{colorName == "" ? "Chill Blue" : colorName}"</p>
                 </div>
               </div>
             </div>
