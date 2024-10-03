@@ -111,6 +111,12 @@
 /* ------------------------------------------------------------------------
                                 RIGHT SIDE 
    ------------------------------------------------------------------------*/
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 .colorSwatch {
   color: black;
   background-color: #fafafa;
@@ -164,6 +170,69 @@
   margin: 0;
 }
 
+.warning {
+  width: 260px;
+  font-weight: bold;
+  text-align: center;
+  color: #9c1717;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+  background-color: #474747;
+  padding: 12px 20px;
+}
+
+.submitButton:hover {
+  cursor: pointer;
+  background-color: #787878;
+}
+
+
+.submitButtonSubmitting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+  background-color: #787878;
+  padding: 12px 20px;
+}
+
+.submitButtonSuccess {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+  background-color: #1c731f;
+  padding: 12px 20px;
+}
+
+.submitButtonError {
+  width: 180px;
+  background-color: #721a1a;
+  padding: 12px 20px;
+}
+
+.submitText {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  padding: 0;
+  margin: 0;
+  /* margin-left: 10px; */
+}
+
+.errorText {
+  color: white;
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+
 /* @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
@@ -188,9 +257,3 @@
     filter: invert();
   }
 } */
-
-.squareButton {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-}
