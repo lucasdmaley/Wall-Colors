@@ -73,7 +73,7 @@ export default function Home() {
         hexcode: hexCode,
       }),
     }).then((data) => data.json()).then((r) => {
-        console.log("all done!");
+        console.log("there we go - all done!");
     });
     ;
   }
