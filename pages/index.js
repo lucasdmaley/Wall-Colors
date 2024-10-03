@@ -18,11 +18,11 @@ const MyPicker = ({ hex, hsl, hsv, onChange }) => {
   const [hexPickerState, setHexPickerState] = useState({ color: "#757575" });
 
   const hexInputStyle = {
-    input: { border: "none", fontSize: '24px', color: hexPickerState.color, backgroundColor: "rgba(0,0,0,0)", width: "120px" },
+    input: { border: "none", fontSize: '18px', color: hexPickerState.color, backgroundColor: "rgba(0,0,0,0)", width: "100px" },
   }
 
   return (
-    <div style={{ width: '420px' }} onClick={() => setHexPickerState({color: "#000"})}>
+    <div style={{ width: '300px' }} onClick={() => setHexPickerState({color: "#000"})}>
       
       {/* Saturation Area */}
       <div style={{ position: 'relative', width: '100%', paddingBottom: '75%', marginBottom: '10px' }}>
@@ -90,18 +90,15 @@ export default function Home() {
               onChange={handleChange} 
             />
             <div className={styles.row}>
-            <p className={styles.inputName}>Color Name</p>
-              <input type="text" value={colorName} onChange={(e) => {setColorName(e.target.value)}}
-                className={styles.inputUsername} placeholder="Chill Blue"/>
+                <p className={styles.inputName}>Color Name</p>
+                <input className={styles.inputUsername} type="text" value={colorName} onChange={(e) => {setColorName(e.target.value)}} placeholder="Chill Blue"/>
             </div>
             <div className={styles.row}>
-            <p className={styles.inputName}>Your Name</p>
-              <input type="text" value={username} onChange={(e) => {setUsername(e.target.value)}}
-                className={styles.inputUsername} placeholder="Lucas Maley"/>
+                <p className={styles.inputName}>Your Name</p>
+                <input className={styles.inputUsername}type="text" value={username} onChange={(e) => {setUsername(e.target.value)}} placeholder="Lucas Maley"/>
             </div>
             <div className={styles.squareButton} onClick={() => {postSwatch(); console.log("hey")}}/>
-          </div>
-          <div className = {styles.rightSide}>
+            <div className = {styles.rightSide}>
             <div className={styles.colorSwatch}>
               <div style={{backgroundColor: hexCode}} className={styles.colorItself}/>
               <div className={styles.swatchText}>
@@ -113,6 +110,7 @@ export default function Home() {
               </div>
             </div>
             <p className={styles.caption}>This is what it'll look like</p>
+          </div>
           </div>
         </main>
       </div>
