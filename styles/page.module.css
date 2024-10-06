@@ -83,9 +83,8 @@
   border-bottom: 2px outset #fafafa;
 }
 
-.inputUsername {
+.textInput {
   width: 140px;
-  color: "#C9C9C9";
   border: none;
   border-bottom: 2px outset #fafafa;
   font-size: 18px;
@@ -257,3 +256,54 @@
     filter: invert();
   }
 } */
+
+/* ------------------------------------------------------------------------
+                                GALLERY 
+   ------------------------------------------------------------------------*/
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+
+  padding: 5vh 5vw;
+  /* background-color: blue; */
+} 
+
+.galleryText {
+  font-size: 18px;
+  margin: 0;
+  text-align: center;
+  /* padding-top: 10px; */
+}
+
+.search {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 20px 0 10px 0;
+}
+
+
+
+.searchWrapper {
+  display: flex;
+  /* gap: 4px; */
+  align-items: center;
+  color: #a6a6a6;
+  /* color: blue; */
+}
+
+.clear:hover {
+  cursor: pointer;
+}
+
+.swatches {
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
